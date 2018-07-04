@@ -10,6 +10,13 @@ export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)
 
 
 # on history
+function share_history_among_terminals {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history_among_terminals'
+shopt -u histappend
 export HISTSIZE=9999
 HISTTIMEFORMAT='%Y%m%d %T ';
 
